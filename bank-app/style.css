@@ -1,0 +1,417 @@
+:root {
+--primary-blue: #007bff;
+--secondary-gray: #f4f7f9;
+--text-dark: #333;
+--text-light: #fff;
+--card-bg: #fff;
+--accent-green: #28a745;
+--accent-red: #dc3545;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color: var(--secondary-gray);
+color: var(--text-dark);
+}
+
+/* --- Layout Structure --- */
+.dashboard-container {
+display: flex;
+min-height: 100vh;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+width: 250px;
+background-color: var(--text-light);
+box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+display: flex;
+flex-direction: column;
+padding: 20px 0;
+}
+
+.logo {
+font-size: 1.8em;
+font-weight: bold;
+color: var(--primary-blue);
+text-align: center;
+margin-bottom: 40px;
+}
+
+.main-nav a {
+display: flex;
+align-items: center;
+padding: 15px 20px;
+color: var(--text-dark);
+text-decoration: none;
+transition: background-color 0.2s, color 0.2s;
+font-weight: 500;
+}
+
+.main-nav a i {
+margin-right: 15px;
+font-size: 1.1em;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+background-color: var(--primary-blue);
+color: var(--text-light);
+border-left: 5px solid var(--secondary-gray);
+}
+
+.user-info {
+margin-top: auto;
+padding: 20px;
+text-align: center;
+border-top: 1px solid #eee;
+}
+
+.user-info i {
+font-size: 2em;
+color: var(--primary-blue);
+}
+
+.user-info span {
+display: block;
+margin: 5px 0 15px;
+font-weight: 600;
+}
+
+.logout {
+color: var(--text-dark);
+text-decoration: none;
+font-size: 0.9em;
+}
+
+/* --- Main Content --- */
+.main-content {
+flex-grow: 1;
+padding: 30px;
+}
+
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 30px;
+}
+
+.header h2 {
+font-weight: 300;
+font-size: 1.8em;
+}
+
+.icon-btn {
+background: var(--card-bg);
+border: 1px solid #ddd;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+margin-left: 10px;
+cursor: pointer;
+color: var(--text-dark);
+transition: background-color 0.2s;
+}
+
+.icon-btn:hover {
+background-color: #e6e6e6;
+}
+
+/* --- Summary Cards --- */
+.summary-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+margin-bottom: 30px;
+}
+
+.account-card {
+background-color: var(--card-bg);
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.primary-account {
+border-left: 5px solid var(--primary-blue);
+}
+
+.savings-account {
+border-left: 5px solid var(--accent-green);
+}
+
+.card-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.card-header h3 {
+font-size: 1.2em;
+font-weight: 600;
+}
+
+.card-header i {
+font-size: 1.5em;
+color: var(--primary-blue);
+}
+
+.balance {
+font-size: 2.5em;
+font-weight: 700;
+margin-bottom: 5px;
+}
+
+.account-number {
+color: #666;
+font-size: 0.9em;
+}
+
+/* --- Quick Actions & Transactions --- */
+.content-flex {
+display: flex;
+gap: 30px;
+}
+
+.quick-actions-box, .transactions-box {
+background-color: var(--card-bg);
+padding: 25px;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.quick-actions-box {
+flex: 1;
+}
+
+.transactions-box {
+flex: 2;
+}
+
+.actions-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 15px;
+margin-top: 20px;
+}
+
+.action-btn {
+padding: 15px;
+background-color: var(--secondary-gray);
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-weight: 600;
+transition: background-color 0.2s;
+}
+
+.action-btn i {
+display: block;
+font-size: 1.5em;
+margin-bottom: 5px;
+color: var(--primary-blue);
+}
+
+.action-btn:hover {
+background-color: #ddd;
+}
+
+/* Transaction List Styling (Added by JS) */
+.transaction-list {
+list-style: none;
+margin-top: 20px;
+}
+
+.transaction-item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+border-bottom: 1px solid #eee;
+}
+
+.transaction-info {
+text-align: left;
+}
+
+.transaction-amount {
+font-weight: 700;
+font-size: 1.1em;
+}
+
+.type-debit .transaction-amount {
+color: var(--accent-red);
+}
+
+.type-credit .transaction-amount {
+color: var(--accent-green);
+}
+
+/* --- New Global View Styles --- */
+.view {
+display: none; /* Hide all views by default */
+animation: fadeIn 0.5s;
+}
+
+.view.active {
+display: block; /* Show the active view */
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Placeholder View Styles --- */
+.placeholder-content {
+padding: 50px;
+background-color: var(--card-bg);
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+text-align: center;
+color: #6c757d;
+}
+
+.placeholder-content i {
+font-size: 3em;
+margin-bottom: 20px;
+color: var(--primary-blue);
+}
+
+/* --- Settings View Styles --- */
+.settings-panel {
+background-color: var(--card-bg);
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+max-width: 800px;
+margin: 0 auto;
+text-align: left;
+}
+
+.settings-panel h3 {
+border-bottom: 2px solid #f0f0f0;
+padding-bottom: 10px;
+margin-top: 30px;
+margin-bottom: 20px;
+font-size: 1.5em;
+color: var(--text-dark);
+}
+
+.settings-panel h3:first-child {
+margin-top: 0;
+}
+
+.setting-option {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 0;
+border-bottom: 1px solid #eee;
+font-size: 1.1em;
+}
+
+.setting-option:last-child {
+border-bottom: none;
+}
+
+.btn {
+display: inline-block;
+padding: 10px 15px;
+border-radius: 5px;
+text-decoration: none;
+font-weight: bold;
+transition: background-color 0.3s ease;
+cursor: pointer;
+border: none;
+}
+
+.primary-btn {
+background-color: var(--primary-blue);
+color: var(--text-light);
+}
+
+.primary-btn:hover {
+background-color: #0056b3;
+}
+
+.setting-btn {
+padding: 8px 15px;
+font-size: 0.9em;
+}
+
+.logout-btn {
+background-color: var(--accent-red);
+color: var(--text-light);
+}
+
+.logout-btn:hover {
+background-color: #c82333;
+}
+
+/* --- Responsiveness (Mobile View) --- */
+@media (max-width: 992px) {
+.dashboard-container {
+flex-direction: column;
+}
+
+.sidebar {
+width: 100%;
+height: auto;
+padding: 10px 0;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+}
+
+.logo {
+margin-bottom: 0;
+padding-left: 20px;
+}
+
+.main-nav {
+display: none; /* Hide detailed nav on small screens */
+}
+
+.user-info {
+display: none; /* Hide detailed user info */
+}
+
+.main-content {
+padding: 20px;
+}
+
+.content-flex {
+flex-direction: column;
+}
+
+.quick-actions-box {
+order: 2; /* Move quick actions below transactions on mobile */
+}
+
+.transactions-box {
+order: 1;
+}
+
+.settings-panel {
+padding: 20px;
+}
+
+.setting-option {
+flex-direction: column;
+align-items: flex-start;
+padding: 15px 0;
+}
+
+.setting-option span {
+margin-bottom: 10px;
+}
+}

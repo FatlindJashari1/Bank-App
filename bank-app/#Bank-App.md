@@ -1,0 +1,2 @@
+#Bank-App
+Bank App is a modern and user-friendly web application designed to simulate basic banking operations. It allows users to manage accounts, view balances, and perform simple transactions in a clean and intuitive interface. This project was built to practice frontend development skills and real-world app structure.

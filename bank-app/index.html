@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Bank Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+<aside class="sidebar">
+<div class="logo">BankApp</div>
+<nav class="main-nav">
+<a href="#dashboard" class="nav-link active" data-view="dashboard"><i class="fas fa-home"></i> Dashboard</a>
+<a href="#accounts" class="nav-link" data-view="accounts"><i class="fas fa-credit-card"></i> Accounts</a>
+<a href="#payments" class="nav-link" data-view="payments"><i class="fas fa-exchange-alt"></i> Payments</a>
+<a href="#investments" class="nav-link" data-view="investments"><i class="fas fa-chart-line"></i> Investments</a>
+<a href="#settings" class="nav-link" data-view="settings"><i class="fas fa-cog"></i> Settings</a>
+</nav>
+<div class="user-info">
+<i class="fas fa-user-circle"></i>
+<span>John Doe</span>
+<a href="#" class="logout" id="logout-btn-sidebar"><i class="fas fa-sign-out-alt"></i></a>
+</div>
+</aside>
+
+<main class="main-content">
+<header class="header">
+<h2 id="view-title">Welcome back, John!</h2>
+<div class="header-actions">
+<button class="icon-btn"><i class="fas fa-bell"></i></button>
+<button class="icon-btn"><i class="fas fa-question-circle"></i></button>
+</div>
+</header>
+
+<section id="dashboard-view" class="view active">
+<section class="summary-grid">
+<div class="account-card primary-account">
+<div class="card-header">
+<h3>Main Checking Account</h3>
+<i class="fas fa-piggy-bank"></i>
+</div>
+<p class="balance">$18,500.55</p>
+<p class="account-number">**** **** 1234</p>
+</div>
+
+<div class="account-card savings-account">
+<div class="card-header">
+<h3>Savings Goal</h3>
+<i class="fas fa-wallet"></i>
+</div>
+<p class="balance">$5,200.00</p>
+<p class="account-number">Goal: $10,000</p>
+</div>
+</section>
+
+<div class="content-flex">
+<div class="quick-actions-box">
+<h3>Quick Actions</h3>
+<div class="actions-grid">
+<button class="action-btn" data-action="transfer"><i class="fas fa-paper-plane"></i> Transfer</button>
+<button class="action-btn" data-action="pay"><i class="fas fa-receipt"></i> Pay Bill</button>
+<button class="action-btn" data-action="deposit"><i class="fas fa-money-check-alt"></i> Deposit</button>
+<button class="action-btn" data-action="statement"><i class="fas fa-file-invoice"></i> Statement</button>
+</div>
+</div>
+
+<div class="transactions-box">
+<h3>Recent Transactions</h3>
+<ul class="transaction-list" id="transaction-list">
+</ul>
+</div>
+</div>
+</section>
+
+<section id="settings-view" class="view">
+<div class="settings-panel">
+<h3>Account Security</h3>
+<div class="setting-option">
+<span>Change Password</span>
+<button class="btn setting-btn primary-btn" data-setting="password">Update</button>
+</div>
+<div class="setting-option">
+<span>Two-Factor Authentication</span>
+<button class="btn setting-btn primary-btn" data-setting="2fa">Enable</button>
+</div>
+
+<h3>General</h3>
+<div class="setting-option">
+<span>Notification Preferences</span>
+<button class="btn setting-btn primary-btn" data-setting="notifications">Manage</button>
+</div>
+<div class="setting-option">
+<span>Download Statement</span>
+<button class="btn setting-btn primary-btn" data-setting="statement">Download</button>
+</div>
+
+<h3>Exit</h3>
+<div class="setting-option">
+<span>Securely log out of this session.</span>
+<button class="btn setting-btn logout-btn" id="logout-btn-settings"><i class="fas fa-sign-out-alt"></i> Logout</button>
+</div>
+</div>
+</section>
+
+<section id="accounts-view" class="view">
+<div class="placeholder-content">
+<i class="fas fa-credit-card"></i>
+<p>Account details and card management features go here.</p>
+</div>
+</section>
+<section id="payments-view" class="view">
+<div class="placeholder-content">
+<i class="fas fa-exchange-alt"></i>
+<p>Payment and transfer forms go here.</p>
+</div>
+</section>
+<section id="investments-view" class="view">
+<div class="placeholder-content">
+<i class="fas fa-chart-line"></i>
+<p>Investment portfolio and trading interface go here.</p>
+</div>
+</section>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
